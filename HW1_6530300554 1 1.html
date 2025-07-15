@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siriwimon Sangthong - Resume</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #333;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --text-light: #777;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        header {
+            width: 64.5%;
+            background: linear-gradient(135deg, var(--primary-color), #1a252f);
+            color: white;
+            padding: 3rem 0;
+            justify-self: center;
+            text-align: center;
+            position: center;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        header img {
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border: 6px solid var(--light-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header img:hover {
+            transform: scale(1.05);
+        }
+        
+        header h1 {
+            color: white;
+            margin: 1rem 0 0.5rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            margin: 0;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        main {
+            max-width: 900px;
+            margin: 0px auto 2rem;
+            padding: 2.5rem;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        section:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #eee, transparent);
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.7rem;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.2rem 0 0.8rem;
+            color: var(--secondary-color);
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            margin-bottom: 0.7rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-info a {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.7rem 1.2rem;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info a:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+        
+        .education-item, .experience-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #fafafa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .education-item:hover, .experience-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .education-item img {
+            max-width: 80px;
+            border-radius: 50%;
+            margin-right: 1.5rem;
+            float: left;
+            border: 3px solid var(--light-color);
+        }
+        
+        .education-item h3 {
+            margin-top: 0;
+            padding-top: 0.5rem;
+        }
+        
+        .education-item p {
+            margin: 0.3rem 0;
+            color: var(--text-light);
+        }
+        
+        .education-item::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .skill-category h3 {
+            margin-top: 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dashed #eee;
+        }
+        
+        .experience-item h3 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .experience-item h3::before {
+            content: '▹';
+            color: var(--secondary-color);
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        #references p {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                padding: 1.5rem;
+                margin: -30px auto 2rem;
+            }
+            
+            header {
+                padding: 2rem 0;
+            }
+        
+            .skills-container {
+                flex-direction: column;
+            }
+            
+            .education-item img {
+                float: none;
+                display: block;
+                margin: 0 auto 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="siriwimon.jpg"> 
+        <h1 style="color: white;">Siriwimon Sangthong</h1>
+        <p>Computer Engineering and Informatics Student</p>
+    </header>
+
+    <main>
+        <section id="basic-info">
+            <h2>Basic Information</h2>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:siriwimon.sa@ku.th">siriwimon.sa@ku.th</a></li>
+                <li><strong>Facebook:</strong> <a href="https://www.facebook.com/chompoo.naja.3979" target="_blank">Siriwimon Sangthong</a></li>
+                <li><strong>Phone:</strong> 065-313-5726</li>
+                <li><strong>Address:</strong> 65/1 Moo 4, Subdistrict Chamai, District Thungsong, Province Nakornsri Thammarat, 80110</li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2>Education Background</h2>
+            <div class="education-item">
+                <img id="school" src="https://vet.ku.ac.th/vv2018/download/logo_ku_th.jpg">
+                <h3>Kasetsart University, Sriracha Campus</h3>
+                <p>Bachelor of Engineering (Computer Engineering and Informatics)</p>
+                <p>2021-2024</p>
+            </div>
+            <div class="education-item">
+                <img id="school" src="https://www.tswittaya.ac.th/_files/webconfig/80100946_0_20220905-183749.png" alt="Logo site">
+                <h3>Thungsong Wittaya School</h3>
+                <p>Science - Mathematics Program</p>
+                <p>2018-2020</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>HTML5, CSS, React, Vue.js</li>
+                        <li>C, C++, Java, JavaScript, Python</li>
+                        <li>Figma, Adobe Photoshop</li>
+                        <li>Adobe Premier Pro</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <ul>
+                        <li>Microsoft Office (Excel, Word)</li>
+                        <li>Communication</li>
+                        <li>Teamwork</li>
+                        <li>Problem-Solving</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <h3>Design Figma</h3>
+                <ul>
+                    <li>Designed UI for hotel booking applications using Figma</li>
+                    <li>Created UI windows for Read booking apps</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Airport Link App</h3>
+                <p>An application for Airport link by pressing on your phone</p>
+            </div>
+            <div class="experience-item">
+                <h3>Coffee Machine Application</h3>
+                <p>Coffee ordering applications on the phone</p>
+            </div>
+            <div class="experience-item">
+                <h3>First runner-up, Innovation to preserve latex quality Rubber Authority of Thailand</h3>
+                <p>Qualitex Vault</p>
+            </div>
+        </section>
+
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Learning new skills</li>
+                <li>Inventing new projects</li>
+                <li>Playing games</li>
+            </ul>
+        </section>
+
+        <section id="languages">
+            <h2>Languages</h2>
+            <ul>
+                <li>English</li>
+                <li>Thai</li>
+            </ul>
+        </section>
+
+        <section id="references">
+            <h2>References</h2>
+            <p><strong>Korawit Orkphol</strong><br>
+            Wardiere Inc. / CEO<br>
+            Email: <a href="mailto:Korawit@engsrc.ku.ac.th">Korawit@engsrc.ku.ac.th</a></p>
+        </section>
+    </main>
+</body>
+</html>
